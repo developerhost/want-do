@@ -1,8 +1,50 @@
 <template>
   <div id="Singup">
-    サインアップ
+    <h2>サインアップ</h2>
+    <!-- 登録フォーム -->
+    <input type="email" placeholder="email" v-model="email" />
+    <input type="password" placeholder="password" v-model="password" />
+    <button @click="signUp">登録</button>
+
+    <!-- サインインへの遷移ボタン -->
+    <p>
+      アカウントをすでにお持ちの方
+      <router-link to="/signin">sign in now</router-link>
+    </p>
   </div>
 </template>
 
-<style>
-</style>
+<script>
+import firebase from "firebase"; // firebaseのインポート
+
+export default {
+  name: "Signup",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    // singUpボタンが押されたときに実行されるfunctrion
+    signUp: function() {
+      firebase
+        .auth()
+        .createUserAndRetrieveDataWithEmailAndPassword(
+          this.email,
+          this.password
+        )
+        .then((user) => {
+          //成功時
+          alert("Create account: " + user.user.email);
+        })
+        .catch((error) => {
+          // 失敗時
+          alert(error.message);
+        });
+    },
+  },
+};
+</script>
+
+<style></style>

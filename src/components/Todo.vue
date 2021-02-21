@@ -2,19 +2,6 @@
   <v-container>
     <v-row class="text-center" justify="center">
       <v-col class="mb-20" justify="center">
-        <v-container class="ml-50">
-          <div class="ml-50">
-            <v-layout wrap class="ml-50" justify="center">
-              <v-icon large color="blue darken-2" class="ml-50">
-                mdi-message-text
-              </v-icon>
-
-              <h2 class="title font-weight-bold mb-3">
-                死ぬまでにやりたいことリスト <br />
-              </h2>
-            </v-layout>
-          </div>
-        </v-container>
 
         <h2 class="title font-weight-bold mb-3">
           ~List of things to do before you die~
